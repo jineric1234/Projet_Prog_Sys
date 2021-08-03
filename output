@@ -1,0 +1,33 @@
+total 384
+drwxrwxrwx  2 eric eric  4096 nov.  24 22:15 .
+drwxr-xr-x 15 eric eric  4096 nov.  18 06:45 ..
+-rw-r--r--  1 eric eric     0 nov.  21 23:36 0R%OV
+-rw-r--r--  1 eric eric     0 nov.  21 23:38 0◊‚`çU
+-rw-rw-rw-  1 eric eric  2296 nov.  14 23:22 Affichage.c
+-rw-rw-rw-  1 eric eric   113 nov.  14 23:22 Affichage.h
+-rw-r--r--  1 eric eric 17296 nov.  24 22:15 Affichage.o
+-rw-rw-rw-  1 eric eric   738 nov.  14 23:22 Analyse.l
+-rw-rw-rw-  1 eric eric  2344 nov.  14 23:22 Analyse.y
+-rw-r--r--  1 eric eric  6340 nov.  24 22:15 Evaluation.c
+-rw-rw-rw-  1 eric eric   113 nov.  14 23:22 Evaluation.h
+-rw-rw-rw-  1 eric eric  3116 nov.  22 02:43 Evaluationn.c
+-rw-r--r--  1 eric eric 20416 nov.  24 22:15 Evaluation.o
+-rw-r--r--  1 eric eric     0 nov.  21 23:36 fÚ4nU
+-rw-r--r--  1 eric eric 46291 nov.  24 22:15 lex.yy.c
+-rw-r--r--  1 eric eric 51400 nov.  24 22:15 lex.yy.o
+-rw-r--r--  1 eric eric     0 nov.  22 02:47 ls
+-rw-rw-rw-  1 eric eric   511 nov.  14 23:22 Makefile
+-rw-r--r--  1 eric eric     0 nov.  24 22:15 output
+-rw-r--r--  1 eric eric     0 nov.  21 23:36 PfÒ4nU
+-rwxr-xr-x  1 eric eric 77048 nov.  24 22:15 Shell
+-rw-rw-rw-  1 eric eric  6197 nov.  21 22:56 Shell.c
+-rw-rw-rw-  1 eric eric  1187 nov.  14 23:22 Shell.h
+-rw-r--r--  1 eric eric 26576 nov.  24 22:15 Shell.o
+-rw-r--r--  1 eric eric     0 nov.  21 23:39 `›‚`çU
+-rw-r--r--  1 eric eric     0 nov.  21 23:38 Äœ·`çU
+-rw-r--r--  1 eric eric     0 nov.  21 23:37 ∞V%OV
+-rw-r--r--  1 eric eric 13963 nov.  24 22:15 y.output
+-rw-r--r--  1 eric eric 36828 nov.  24 22:15 y.tab.c
+-rw-r--r--  1 eric eric  6666 nov.  24 22:15 y.tab.h
+-rw-r--r--  1 eric eric 21048 nov.  24 22:15 y.tab.o
+-rw-r--r--  1 eric eric     0 nov.  21 23:34 @áZÕåU

@@ -1,0 +1,515 @@
+Conflict in state 22 between rule 6 and token '&' resolved as reduce.
+Conflict in state 22 between rule 6 and token ';' resolved as reduce.
+Conflict in state 22 between rule 6 and token ET resolved as reduce.
+Conflict in state 22 between rule 6 and token OU resolved as reduce.
+Conflict in state 22 between rule 6 and token '|' resolved as shift.
+Conflict in state 22 between rule 6 and token IN resolved as shift.
+Conflict in state 22 between rule 6 and token OUT resolved as shift.
+Conflict in state 22 between rule 6 and token OUT_APPEND resolved as shift.
+Conflict in state 22 between rule 6 and token ERR resolved as shift.
+Conflict in state 22 between rule 6 and token ERR_OUT resolved as shift.
+Conflict in state 23 between rule 7 and token '&' resolved as reduce.
+Conflict in state 23 between rule 7 and token ';' resolved as reduce.
+Conflict in state 23 between rule 7 and token ET resolved as reduce.
+Conflict in state 23 between rule 7 and token OU resolved as reduce.
+Conflict in state 23 between rule 7 and token '|' resolved as shift.
+Conflict in state 23 between rule 7 and token IN resolved as shift.
+Conflict in state 23 between rule 7 and token OUT resolved as shift.
+Conflict in state 23 between rule 7 and token OUT_APPEND resolved as shift.
+Conflict in state 23 between rule 7 and token ERR resolved as shift.
+Conflict in state 23 between rule 7 and token ERR_OUT resolved as shift.
+Conflict in state 24 between rule 8 and token '&' resolved as reduce.
+Conflict in state 24 between rule 8 and token ';' resolved as reduce.
+Conflict in state 24 between rule 8 and token ET resolved as reduce.
+Conflict in state 24 between rule 8 and token OU resolved as reduce.
+Conflict in state 24 between rule 8 and token '|' resolved as shift.
+Conflict in state 24 between rule 8 and token IN resolved as shift.
+Conflict in state 24 between rule 8 and token OUT resolved as shift.
+Conflict in state 24 between rule 8 and token OUT_APPEND resolved as shift.
+Conflict in state 24 between rule 8 and token ERR resolved as shift.
+Conflict in state 24 between rule 8 and token ERR_OUT resolved as shift.
+Conflict in state 25 between rule 9 and token '&' resolved as reduce.
+Conflict in state 25 between rule 9 and token ';' resolved as reduce.
+Conflict in state 25 between rule 9 and token ET resolved as reduce.
+Conflict in state 25 between rule 9 and token OU resolved as reduce.
+Conflict in state 25 between rule 9 and token '|' resolved as reduce.
+Conflict in state 25 between rule 9 and token IN resolved as shift.
+Conflict in state 25 between rule 9 and token OUT resolved as shift.
+Conflict in state 25 between rule 9 and token OUT_APPEND resolved as shift.
+Conflict in state 25 between rule 9 and token ERR resolved as shift.
+Conflict in state 25 between rule 9 and token ERR_OUT resolved as shift.
+
+Grammar
+rule 1    lignecommande -> expression_ou_rien '\n'
+rule 2    lignecommande -> error '\n'
+rule 3    expression_ou_rien ->		/* empty */
+rule 4    expression_ou_rien -> expression
+rule 5    expression -> commande
+rule 6    expression -> expression ';' expression
+rule 7    expression -> expression ET expression
+rule 8    expression -> expression OU expression
+rule 9    expression -> expression '|' expression
+rule 10   expression -> expression IN fichier
+rule 11   expression -> expression OUT fichier
+rule 12   expression -> expression ERR fichier
+rule 13   expression -> expression ERR_OUT fichier
+rule 14   expression -> expression OUT_APPEND fichier
+rule 15   expression -> expression '&'
+rule 16   expression -> '(' expression ')'
+rule 17   fichier -> IDENTIFICATEUR
+rule 18   commande -> IDENTIFICATEUR
+rule 19   commande -> commande IDENTIFICATEUR
+
+Terminals, with rules where they appear
+
+$ (-1)
+'\n' (10) 1 2
+'&' (38) 15
+'(' (40) 16
+')' (41) 16
+';' (59) 6
+'|' (124) 9
+error (256) 2
+IDENTIFICATEUR (258) 17 18 19
+ET (259) 7
+OU (260) 8
+IN (261) 10
+OUT (262) 11
+OUT_APPEND (263) 14
+ERR (264) 12
+ERR_OUT (265) 13
+
+Nonterminals, with rules where they appear
+
+lignecommande (17)
+    on left: 1 2
+expression_ou_rien (18)
+    on left: 3 4, on right: 1
+expression (19)
+    on left: 5 6 7 8 9 10 11 12 13 14 15 16, on right: 4 6 7 8 9 10
+    11 12 13 14 15 16
+fichier (20)
+    on left: 17, on right: 10 11 12 13 14
+commande (21)
+    on left: 18 19, on right: 5 19
+
+
+state 0
+
+    error	shift, and go to state 1
+    IDENTIFICATEUR	shift, and go to state 2
+    '(' 	shift, and go to state 3
+
+    '\n'	reduce using rule 3 (expression_ou_rien)
+
+    lignecommande	go to state 32
+    expression_ou_rien	go to state 4
+    expression	go to state 5
+    commande	go to state 6
+
+
+
+state 1
+
+    lignecommande  ->  error . '\n'   (rule 2)
+
+    '\n'	shift, and go to state 7
+
+
+
+state 2
+
+    commande  ->  IDENTIFICATEUR .   (rule 18)
+
+    $default	reduce using rule 18 (commande)
+
+
+
+state 3
+
+    expression  ->  '(' . expression ')'   (rule 16)
+
+    IDENTIFICATEUR	shift, and go to state 2
+    '(' 	shift, and go to state 3
+
+    expression	go to state 8
+    commande	go to state 6
+
+
+
+state 4
+
+    lignecommande  ->  expression_ou_rien . '\n'   (rule 1)
+
+    '\n'	shift, and go to state 9
+
+
+
+state 5
+
+    expression_ou_rien  ->  expression .   (rule 4)
+    expression  ->  expression . ';' expression   (rule 6)
+    expression  ->  expression . ET expression   (rule 7)
+    expression  ->  expression . OU expression   (rule 8)
+    expression  ->  expression . '|' expression   (rule 9)
+    expression  ->  expression . IN fichier   (rule 10)
+    expression  ->  expression . OUT fichier   (rule 11)
+    expression  ->  expression . ERR fichier   (rule 12)
+    expression  ->  expression . ERR_OUT fichier   (rule 13)
+    expression  ->  expression . OUT_APPEND fichier   (rule 14)
+    expression  ->  expression . '&'   (rule 15)
+
+    '&' 	shift, and go to state 10
+    ';' 	shift, and go to state 11
+    ET  	shift, and go to state 12
+    OU  	shift, and go to state 13
+    '|' 	shift, and go to state 14
+    IN  	shift, and go to state 15
+    OUT 	shift, and go to state 16
+    OUT_APPEND	shift, and go to state 17
+    ERR 	shift, and go to state 18
+    ERR_OUT	shift, and go to state 19
+
+    $default	reduce using rule 4 (expression_ou_rien)
+
+
+
+state 6
+
+    expression  ->  commande .   (rule 5)
+    commande  ->  commande . IDENTIFICATEUR   (rule 19)
+
+    IDENTIFICATEUR	shift, and go to state 20
+
+    $default	reduce using rule 5 (expression)
+
+
+
+state 7
+
+    lignecommande  ->  error '\n' .   (rule 2)
+
+    $default	reduce using rule 2 (lignecommande)
+
+
+
+state 8
+
+    expression  ->  expression . ';' expression   (rule 6)
+    expression  ->  expression . ET expression   (rule 7)
+    expression  ->  expression . OU expression   (rule 8)
+    expression  ->  expression . '|' expression   (rule 9)
+    expression  ->  expression . IN fichier   (rule 10)
+    expression  ->  expression . OUT fichier   (rule 11)
+    expression  ->  expression . ERR fichier   (rule 12)
+    expression  ->  expression . ERR_OUT fichier   (rule 13)
+    expression  ->  expression . OUT_APPEND fichier   (rule 14)
+    expression  ->  expression . '&'   (rule 15)
+    expression  ->  '(' expression . ')'   (rule 16)
+
+    '&' 	shift, and go to state 10
+    ';' 	shift, and go to state 11
+    ET  	shift, and go to state 12
+    OU  	shift, and go to state 13
+    '|' 	shift, and go to state 14
+    IN  	shift, and go to state 15
+    OUT 	shift, and go to state 16
+    OUT_APPEND	shift, and go to state 17
+    ERR 	shift, and go to state 18
+    ERR_OUT	shift, and go to state 19
+    ')' 	shift, and go to state 21
+
+
+
+state 9
+
+    lignecommande  ->  expression_ou_rien '\n' .   (rule 1)
+
+    $default	reduce using rule 1 (lignecommande)
+
+
+
+state 10
+
+    expression  ->  expression '&' .   (rule 15)
+
+    $default	reduce using rule 15 (expression)
+
+
+
+state 11
+
+    expression  ->  expression ';' . expression   (rule 6)
+
+    IDENTIFICATEUR	shift, and go to state 2
+    '(' 	shift, and go to state 3
+
+    expression	go to state 22
+    commande	go to state 6
+
+
+
+state 12
+
+    expression  ->  expression ET . expression   (rule 7)
+
+    IDENTIFICATEUR	shift, and go to state 2
+    '(' 	shift, and go to state 3
+
+    expression	go to state 23
+    commande	go to state 6
+
+
+
+state 13
+
+    expression  ->  expression OU . expression   (rule 8)
+
+    IDENTIFICATEUR	shift, and go to state 2
+    '(' 	shift, and go to state 3
+
+    expression	go to state 24
+    commande	go to state 6
+
+
+
+state 14
+
+    expression  ->  expression '|' . expression   (rule 9)
+
+    IDENTIFICATEUR	shift, and go to state 2
+    '(' 	shift, and go to state 3
+
+    expression	go to state 25
+    commande	go to state 6
+
+
+
+state 15
+
+    expression  ->  expression IN . fichier   (rule 10)
+
+    IDENTIFICATEUR	shift, and go to state 26
+
+    fichier	go to state 27
+
+
+
+state 16
+
+    expression  ->  expression OUT . fichier   (rule 11)
+
+    IDENTIFICATEUR	shift, and go to state 26
+
+    fichier	go to state 28
+
+
+
+state 17
+
+    expression  ->  expression OUT_APPEND . fichier   (rule 14)
+
+    IDENTIFICATEUR	shift, and go to state 26
+
+    fichier	go to state 29
+
+
+
+state 18
+
+    expression  ->  expression ERR . fichier   (rule 12)
+
+    IDENTIFICATEUR	shift, and go to state 26
+
+    fichier	go to state 30
+
+
+
+state 19
+
+    expression  ->  expression ERR_OUT . fichier   (rule 13)
+
+    IDENTIFICATEUR	shift, and go to state 26
+
+    fichier	go to state 31
+
+
+
+state 20
+
+    commande  ->  commande IDENTIFICATEUR .   (rule 19)
+
+    $default	reduce using rule 19 (commande)
+
+
+
+state 21
+
+    expression  ->  '(' expression ')' .   (rule 16)
+
+    $default	reduce using rule 16 (expression)
+
+
+
+state 22
+
+    expression  ->  expression . ';' expression   (rule 6)
+    expression  ->  expression ';' expression .   (rule 6)
+    expression  ->  expression . ET expression   (rule 7)
+    expression  ->  expression . OU expression   (rule 8)
+    expression  ->  expression . '|' expression   (rule 9)
+    expression  ->  expression . IN fichier   (rule 10)
+    expression  ->  expression . OUT fichier   (rule 11)
+    expression  ->  expression . ERR fichier   (rule 12)
+    expression  ->  expression . ERR_OUT fichier   (rule 13)
+    expression  ->  expression . OUT_APPEND fichier   (rule 14)
+    expression  ->  expression . '&'   (rule 15)
+
+    '|' 	shift, and go to state 14
+    IN  	shift, and go to state 15
+    OUT 	shift, and go to state 16
+    OUT_APPEND	shift, and go to state 17
+    ERR 	shift, and go to state 18
+    ERR_OUT	shift, and go to state 19
+
+    $default	reduce using rule 6 (expression)
+
+
+
+state 23
+
+    expression  ->  expression . ';' expression   (rule 6)
+    expression  ->  expression . ET expression   (rule 7)
+    expression  ->  expression ET expression .   (rule 7)
+    expression  ->  expression . OU expression   (rule 8)
+    expression  ->  expression . '|' expression   (rule 9)
+    expression  ->  expression . IN fichier   (rule 10)
+    expression  ->  expression . OUT fichier   (rule 11)
+    expression  ->  expression . ERR fichier   (rule 12)
+    expression  ->  expression . ERR_OUT fichier   (rule 13)
+    expression  ->  expression . OUT_APPEND fichier   (rule 14)
+    expression  ->  expression . '&'   (rule 15)
+
+    '|' 	shift, and go to state 14
+    IN  	shift, and go to state 15
+    OUT 	shift, and go to state 16
+    OUT_APPEND	shift, and go to state 17
+    ERR 	shift, and go to state 18
+    ERR_OUT	shift, and go to state 19
+
+    $default	reduce using rule 7 (expression)
+
+
+
+state 24
+
+    expression  ->  expression . ';' expression   (rule 6)
+    expression  ->  expression . ET expression   (rule 7)
+    expression  ->  expression . OU expression   (rule 8)
+    expression  ->  expression OU expression .   (rule 8)
+    expression  ->  expression . '|' expression   (rule 9)
+    expression  ->  expression . IN fichier   (rule 10)
+    expression  ->  expression . OUT fichier   (rule 11)
+    expression  ->  expression . ERR fichier   (rule 12)
+    expression  ->  expression . ERR_OUT fichier   (rule 13)
+    expression  ->  expression . OUT_APPEND fichier   (rule 14)
+    expression  ->  expression . '&'   (rule 15)
+
+    '|' 	shift, and go to state 14
+    IN  	shift, and go to state 15
+    OUT 	shift, and go to state 16
+    OUT_APPEND	shift, and go to state 17
+    ERR 	shift, and go to state 18
+    ERR_OUT	shift, and go to state 19
+
+    $default	reduce using rule 8 (expression)
+
+
+
+state 25
+
+    expression  ->  expression . ';' expression   (rule 6)
+    expression  ->  expression . ET expression   (rule 7)
+    expression  ->  expression . OU expression   (rule 8)
+    expression  ->  expression . '|' expression   (rule 9)
+    expression  ->  expression '|' expression .   (rule 9)
+    expression  ->  expression . IN fichier   (rule 10)
+    expression  ->  expression . OUT fichier   (rule 11)
+    expression  ->  expression . ERR fichier   (rule 12)
+    expression  ->  expression . ERR_OUT fichier   (rule 13)
+    expression  ->  expression . OUT_APPEND fichier   (rule 14)
+    expression  ->  expression . '&'   (rule 15)
+
+    IN  	shift, and go to state 15
+    OUT 	shift, and go to state 16
+    OUT_APPEND	shift, and go to state 17
+    ERR 	shift, and go to state 18
+    ERR_OUT	shift, and go to state 19
+
+    $default	reduce using rule 9 (expression)
+
+
+
+state 26
+
+    fichier  ->  IDENTIFICATEUR .   (rule 17)
+
+    $default	reduce using rule 17 (fichier)
+
+
+
+state 27
+
+    expression  ->  expression IN fichier .   (rule 10)
+
+    $default	reduce using rule 10 (expression)
+
+
+
+state 28
+
+    expression  ->  expression OUT fichier .   (rule 11)
+
+    $default	reduce using rule 11 (expression)
+
+
+
+state 29
+
+    expression  ->  expression OUT_APPEND fichier .   (rule 14)
+
+    $default	reduce using rule 14 (expression)
+
+
+
+state 30
+
+    expression  ->  expression ERR fichier .   (rule 12)
+
+    $default	reduce using rule 12 (expression)
+
+
+
+state 31
+
+    expression  ->  expression ERR_OUT fichier .   (rule 13)
+
+    $default	reduce using rule 13 (expression)
+
+
+
+state 32
+
+    $   	go to state 33
+
+
+
+state 33
+
+    $   	go to state 34
+
+
+
+state 34
+
+    $default	accept
